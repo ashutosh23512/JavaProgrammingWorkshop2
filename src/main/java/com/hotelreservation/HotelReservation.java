@@ -40,7 +40,15 @@ public class HotelReservation {
 				int RegularCustomerRate = s.nextInt();
 				System.out.println("Enter Weekend Hotel Rate for Regular Customer");
 				int RegularCustomerRateWeekend = s.nextInt();
-				hlist.addHotel(hotelName, RegularCustomerRate, RegularCustomerRateWeekend);
+				System.out.println("Enter Hotel Rating");
+				while (true) {
+					int rating = s.nextInt();
+					if (rating >= 1 && rating <= 5) {
+						hlist.addHotel(hotelName, RegularCustomerRate, RegularCustomerRateWeekend, rating);
+						break;
+					} else
+						System.out.println("Enter Rating between 1 and 5");
+				}
 				System.out.println("Hotel Added Successfully");
 				System.out.println(hlist);
 				System.out.println();
