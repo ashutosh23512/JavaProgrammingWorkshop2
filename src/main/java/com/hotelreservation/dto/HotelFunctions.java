@@ -11,8 +11,8 @@ public class HotelFunctions {
 	public static List<Integer> totalPrice = new ArrayList<>();
 	Hotel h1 = new Hotel();
 
-	public static void addHotel(String hotelName, int RegularCustomerRate) {
-		Hotel h = new Hotel(hotelName, RegularCustomerRate);
+	public static void addHotel(String hotelName, int RegularCustomerRate,int RegularCustomerRateWeekend) {
+		Hotel h = new Hotel(hotelName, RegularCustomerRate, RegularCustomerRateWeekend);
 		hotelList.add(h);
 	}
 
