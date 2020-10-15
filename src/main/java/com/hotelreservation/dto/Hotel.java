@@ -4,10 +4,12 @@ public class Hotel {
 
 	private String hotelName;
 	private int RegularCustomerRate;
+	private int RegularCustomerRateWeekend;
 
-	public Hotel(String hotelName, int RegularCustomerRate) {
+	public Hotel(String hotelName, int RegularCustomerRate, int RegularCustomerRateWeekend) {
 		this.hotelName = hotelName;
 		this.RegularCustomerRate = RegularCustomerRate;
+		this.RegularCustomerRateWeekend = RegularCustomerRateWeekend;
 	}
 
 	public Hotel() {
@@ -21,17 +23,23 @@ public class Hotel {
 		return this.hotelName;
 	}
 
-	public void setCustomerRate(int hotelRateRegularCustomer) {
+	public void setCustomerRate(int hotelRateRegularCustomer, int hotelRateRegularCustomerWeekend) {
 		this.RegularCustomerRate = hotelRateRegularCustomer;
+		this.RegularCustomerRateWeekend = RegularCustomerRateWeekend;
 	}
 
 	public int getRegularCustomerRate() {
 		return this.RegularCustomerRate;
 	}
 
+	public int getRegularCustomerRateWeekend() {
+		return this.RegularCustomerRateWeekend;
+	}
+
 	@Override
 	public String toString() {
-		return ("Hotel: " + getName() + " Rate: " + getRegularCustomerRate() + "\n");
+		return ("Hotel: " + getName() + " Weekday Rate: " + getRegularCustomerRate() + " Weekend Rate: "
+				+ getRegularCustomerRateWeekend() + "\n");
 	}
 
 }

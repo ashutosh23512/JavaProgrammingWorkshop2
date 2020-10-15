@@ -36,9 +36,11 @@ public class HotelReservation {
 					hotelName = s.next();
 					isValid = valid.validateHotelName(hotelName);
 				}
-				System.out.println("Enter Hotel Rate for Regular Customer");
+				System.out.println("Enter Weekday Hotel Rate for Regular Customer");
 				int RegularCustomerRate = s.nextInt();
-				hlist.addHotel(hotelName, RegularCustomerRate);
+				System.out.println("Enter Weekend Hotel Rate for Regular Customer");
+				int RegularCustomerRateWeekend = s.nextInt();
+				hlist.addHotel(hotelName, RegularCustomerRate, RegularCustomerRateWeekend);
 				System.out.println("Hotel Added Successfully");
 				System.out.println(hlist);
 				System.out.println();
@@ -46,7 +48,7 @@ public class HotelReservation {
 				break;
 
 			case 2:
-				System.out.println("Enter the range of dates");
+				System.out.println("Enter the range of dates separated by commas (DDMMMYYYY)");
 				String Range = s.next();
 				hlist.getcheapest(Range);
 				break;
