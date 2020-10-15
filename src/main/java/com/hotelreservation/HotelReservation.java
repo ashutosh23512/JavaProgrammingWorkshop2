@@ -1,13 +1,15 @@
 package com.hotelreservation;
 
+import java.util.Date;
 import com.hotelreservation.dto.*;
 import com.hotelvalidation.HotelValidation;
-
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class HotelReservation {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		System.out.println("Welcome to Hotel Reservation Program");
 		System.out.println();
 
@@ -17,7 +19,8 @@ public class HotelReservation {
 		while (true) {
 
 			System.out.println("Press 1 to add hotel");
-			System.out.println("Press 2 to exit");
+			System.out.println("Press 2 to get cheapest hotel");
+			System.out.println("Press 3 to exit");
 			Scanner s = new Scanner(System.in);
 			int options = s.nextInt();
 			switch (options) {
@@ -43,6 +46,12 @@ public class HotelReservation {
 				break;
 
 			case 2:
+				System.out.println("Enter the range of dates");
+				String Range = s.next();
+				hlist.getcheapest(Range);
+				break;
+
+			case 3:
 				System.out.println("Good Bye");
 				return;
 
