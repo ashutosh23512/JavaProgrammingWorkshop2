@@ -27,12 +27,15 @@ public class HotelFunctions {
 		String[] dates = range.split(",");
 
 		SimpleDateFormat sdf = new SimpleDateFormat("ddMMMyyyy");
-		Map<String, Integer> list = new HashMap<>();
+		Map<String, Integer> Maplist = new HashMap<>();
 		Date checkin = (Date) sdf.parse(dates[0]);
 		Date checkout = (Date) sdf.parse(dates[1]);
 		long difference = checkout.getTime() - checkin.getTime();
 		int totaldays = (int) ((difference / (1000 * 60 * 60 * 24)) + 1);
 		int min = Integer.MAX_VALUE;
+		Map<String, Integer> list = new HashMap<>();
+		Map<String,Integer> byRating = new HashMap<>();
+
 		String s = null;
 		for (Hotel j : hotelList) {
 			int price = 0;
@@ -49,12 +52,32 @@ public class HotelFunctions {
 				min = price;
 			}
 			list.put(j.getName(), price);
+			byRating.put(j.getName(), j.getRating());
+			
 		}
+		List<String> finalHotel = new ArrayList<>();
+		int minRate = -1;
 		for (Map.Entry<String, Integer> entry : list.entrySet()) {
 			if (entry.getValue() == min) {
-				System.out.print("Cheapest Hotel is: " + entry.getKey());
+				for(Map.Entry<String, Integer> entry1 : byRating.entrySet()) {
+					if(entry1.getValue()>minRate && entry1.getKey().equals(entry.getKey())) {
+						minRate = entry1.getValue();
+						if(finalHotel.size() == 0)	finalHotel.add(entry1.getKey());
+						else finalHotel.set(0, entry1.getKey());
+					}
+				}
 			}
 		}
-		System.out.print(" with price $" + min + "\n");
-	}
-}
+		int finalRating = 0, finalPrice = 0;
+		for (Map.Entry<String, Integer> entry : list.entrySet()) {
+			if (entry.getKey().equals(finalHotel.get(0))) {
+				finalPrice = entry.getValue();
+				for(Map.Entry<String, Integer> entry1 : byRating.entrySet()) {
+					if(entry1.getKey().equals(finalHotel.get(0))) {
+						finalRating  = entry1.getValue();
+					}
+				}
+			}
+		}
+		System.out.print(finalHotel.get(0)+","+" Rating: "+finalRating+" Total Rates:$"+finalPrice+"\n");
+	}}
