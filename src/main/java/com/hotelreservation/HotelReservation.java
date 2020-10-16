@@ -19,9 +19,10 @@ public class HotelReservation {
 		while (true) {
 
 			System.out.println("Press 1 to add hotel");
-			System.out.println("Press 2 to get cheapest hotel");
-			System.out.println("Press 3 to get best hotel");
-			System.out.println("Press 4 to exit");
+			System.out.println("Press 2 to get cheapest hotel for regular customer");
+			System.out.println("Press 3 to get best hotel for regular customer");
+			System.out.println("Press 4 to get cheapest hotel for reward customer");
+			System.out.println("Press 5 to exit");
 			Scanner s = new Scanner(System.in);
 			int options = s.nextInt();
 			switch (options) {
@@ -49,7 +50,8 @@ public class HotelReservation {
 				while (true) {
 					int rating = s.nextInt();
 					if (rating >= 1 && rating <= 5) {
-						hlist.addHotel(hotelName, RegularCustomerRate, RegularCustomerRateWeekend,RewardCustomerRate,RewardCustomerRateWeekend, rating);
+						hlist.addHotel(hotelName, RegularCustomerRate, RegularCustomerRateWeekend, RewardCustomerRate,
+								RewardCustomerRateWeekend, rating);
 						break;
 					} else
 						System.out.println("Enter Rating between 1 and 5");
@@ -63,7 +65,7 @@ public class HotelReservation {
 			case 2:
 				System.out.println("Enter the range of dates separated by commas (DDMMMYYYY)");
 				String Range = s.next();
-				hlist.getcheapest(Range);
+				hlist.getcheapestregular(Range);
 				break;
 
 			case 3:
@@ -73,6 +75,11 @@ public class HotelReservation {
 				break;
 
 			case 4:
+				System.out.println("Enter the range of dates separated by commas (DDMMMYYYY)");
+				String Range2 = s.next();
+				hlist.getcheapestreward(Range2);
+				break;
+			case 5:
 				System.out.println("Good Bye");
 				return;
 
