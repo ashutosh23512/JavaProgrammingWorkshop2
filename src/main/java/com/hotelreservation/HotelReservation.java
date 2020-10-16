@@ -20,7 +20,8 @@ public class HotelReservation {
 
 			System.out.println("Press 1 to add hotel");
 			System.out.println("Press 2 to get cheapest hotel");
-			System.out.println("Press 3 to exit");
+			System.out.println("Press 3 to get best hotel");
+			System.out.println("Press 4 to exit");
 			Scanner s = new Scanner(System.in);
 			int options = s.nextInt();
 			switch (options) {
@@ -62,6 +63,12 @@ public class HotelReservation {
 				break;
 
 			case 3:
+				System.out.println("Enter the range of dates separated by commas (DDMMMYYYY)");
+				String Range1 = s.next();
+				hlist.getbest(Range1);
+				break;
+
+			case 4:
 				System.out.println("Good Bye");
 				return;
 
