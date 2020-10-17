@@ -65,7 +65,7 @@ public class HotelReservation {
 			case 2:
 				System.out.println("Enter the range of dates separated by commas (DDMMMYYYY)");
 				String Range = s.next();
-				//hlist.getcheapestregular(Range);
+				hlist.getCheapestBestRatedHotelRegular(Range);
 				break;
 
 			case 3:
@@ -77,7 +77,7 @@ public class HotelReservation {
 			case 4:
 				System.out.println("Enter the range of dates separated by commas (DDMMMYYYY)");
 				String Range2 = s.next();
-				hlist.getCheapestBestRatedHotel(Range2);
+				hlist.getCheapestBestRatedHotelReward(Range2);
 				break;
 			case 5:
 				System.out.println("Good Bye");
